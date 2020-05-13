@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.restapi.HomeFragment"
+        android:label="Todos"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/actionAddTodo"
+            app:destination="@id/addTodoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTodoFragment"
+        android:name="com.example.restapi.AddTodoFragment"
+        android:label="Add Todo"
+        tools:layout="@layout/fragment_add_todo">
+        <action
+            android:id="@+id/actionSaveTodo"
+            app:destination="@id/homeFragment" />
+        <argument
+            app:argType="com.example.restapi.data.Todo"
+            android:name="Todo"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>
